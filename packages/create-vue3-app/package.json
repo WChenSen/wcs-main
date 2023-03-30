@@ -1,6 +1,5 @@
 {
-  "private": true,
-  "name": "wcs-main",
+  "name": "create-vue3-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,10 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "eslint": "^8.36.0",
-    "husky": "^8.0.3",
-    "prettier": "^2.8.7"
-  }
+  "license": "ISC"
 }

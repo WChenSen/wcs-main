@@ -1,0 +1,26 @@
+{
+  "name": "learning-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "rimraf ./lib && tsc",
+    "release": "pnpm build & release-it",
+    "prepare": "pnpm build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "consola": "^2.15.3",
+    "enquirer": "^2.3.6",
+    "fast-glob": "^3.2.12",
+    "fs-extra": "^11.1.1",
+    "picocolors": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.1",
+    "typescript": "^5.0.2"
+  }
+}
