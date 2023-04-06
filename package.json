@@ -3,10 +3,8 @@
   "name": "wcs-main",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "prepare": "husky install",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "husky install"
   },
   "nano-staged": {
     "*.md": "prettier --write",
@@ -15,9 +13,12 @@
   },
   "keywords": [],
   "author": "",
+  "engines": {
+    "node": ">18.0.0",
+    "pnpm": "8"
+  },
   "license": "ISC",
   "devDependencies": {
-    "eslint": "^8.36.0",
     "husky": "^8.0.3",
     "nano-staged": "^0.8.0",
     "prettier": "^2.8.7"
