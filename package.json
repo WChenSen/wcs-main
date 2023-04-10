@@ -8,14 +8,13 @@
   },
   "nano-staged": {
     "*.md": "prettier --write",
-    "*.{ts,tsx,js,vue,less}": "prettier --write",
-    "*.{ts,tsx,js,vue}": "eslint --fix"
+    "*.{ts,tsx,js,vue,less}": "prettier --write"
   },
   "keywords": [],
   "author": "",
   "engines": {
     "node": ">18.0.0",
-    "pnpm": "8"
+    "pnpm": ">8.0.0"
   },
   "license": "ISC",
   "devDependencies": {
