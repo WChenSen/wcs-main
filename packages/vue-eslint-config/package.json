@@ -1,12 +1,16 @@
 {
-  "name": "vue3-eslint-config",
-  "version": "1.0.2",
+  "name": "@wwcs/eslint-config-vue",
+  "version": "0.0.1",
   "description": "vue3 eslint config",
   "main": "index.js",
   "scripts": {
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix"
   },
-  "keywords": [],
+  "keywords": [
+    "vue3",
+    "eslint",
+    "config"
+  ],
   "author": "a940930362",
   "license": "MIT",
   "devDependencies": {
@@ -17,7 +21,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.10.0"
