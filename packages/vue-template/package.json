@@ -27,6 +27,7 @@
     "@types/node": "^18.14.2",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vitejs/plugin-vue-jsx": "^3.0.0",
+    "@wwcs/eslint-config-vue": "workspace:^",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.34.0",
     "npm-run-all": "^4.1.5",
