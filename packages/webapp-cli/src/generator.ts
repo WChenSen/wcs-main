@@ -1,14 +1,16 @@
 import consola from 'consola';
 import { prompt } from 'enquirer';
-import fs from 'fs';
+import glob from 'fast-glob';
+import fs from 'fs-extra';
 import { join } from 'node:path';
+import ora from 'ora';
 import color from 'picocolors';
-import { CWD } from './constant';
+import { CWD, GENERATOR_DIR } from './constant';
 
 const PROMPTS = [
   {
     name: 'temVersion',
-    message: 'Select template version',
+    message: 'Select template',
     type: 'select',
     choices: [
       {
@@ -38,42 +40,58 @@ export class ProjectGenerator {
 
   async run() {
     await this.prompting();
-    // this.copyTpl();
-    this.cloneTpl();
+    this.copyTpl();
   }
 
   async prompting() {
     return prompt<Record<string, string>>(PROMPTS).then((inputs) => {
-      consola.log('inputs', inputs);
       this.inputs.temVersion = inputs.temVersion;
     });
   }
-  cloneTpl() {
-    consola.log('clone staring...');
-  }
-
   copyTpl() {
-    const { name, temVersion } = this.inputs;
-    const fromPath = `${CWD}/generators/${temVersion}`;
-    const toPath = `${CWD}/${name}`;
+    // see https://github.com/mrmlnc/fast-glob#how-to-write-patterns-on-windows
+    const templatePath = join(GENERATOR_DIR, this.inputs.temVersion).replace(
+      /\\/g,
+      '/'
+    );
 
-    fs.cp(fromPath, toPath, { recursive: true }, (err) => {
-      if (err) {
-        return console.error(err);
+    const templateFiles = glob.sync(
+      join(templatePath, '**', '*').replace(/\\/g, '/'),
+      {
+        dot: true,
       }
-      return this.end();
+    );
+    console.log('templateFiles', templateFiles);
+    console.log('templatePath', templatePath);
+
+    const spinner = ora('Loading unicorns').start('loading...');
+    fs.copy(templatePath, this.outputDir, (err) => {
+      if (err) return console.error(err);
+      console.log('success!');
+      // spinner.stop();
+      spinner.clear();
+      spinner.succeed('successful!');
+      this.end();
     });
+
+    // const spinner = ora('Loading unicorns').start();
+    // templateFiles.forEach((filePath) => {
+    //   const outputPath = filePath.replace(templatePath, this.outputDir);
+    //   fs.copySync(filePath, outputPath);
+    // });
+    // spinner.stop();
+
+    // this.end();
   }
 
   end() {
     const { name } = this.inputs;
-
     console.log();
-    consola.success(`Successfully created ${color.yellow(name)}.`);
-    consola.success(
-      `Run ${color.yellow(
-        `cd ${name} && git init && pnpm && pnpm dev`
-      )} to start development!`
-    );
+    consola.log(`Done. Now run:`);
+    console.log();
+    consola.log(`  ${color.yellow(`cd ${name}`)}`);
+    consola.log(`  ${color.yellow(`pnpm install`)}`);
+    consola.log(`  ${color.yellow(`pnpm run dev`)}`);
+    console.log();
   }
 }

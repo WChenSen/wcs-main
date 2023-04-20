@@ -4,6 +4,7 @@
     "target": "ES2019",
     "outDir": "./lib",
     "module": "commonjs",
+    "rootDir": "./src",
     "declaration": true
   },
   "include": ["src/**/*"]

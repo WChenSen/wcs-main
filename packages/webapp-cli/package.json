@@ -1,18 +1,20 @@
 {
-  "name": "webapp-cli",
-  "version": "1.0.0",
-  "description": "",
-  "main": "/lib/index.js",
+  "name": "create-web-project-cli",
+  "version": "1.1.4",
+  "description": "Create web CLI App",
+  "main": "lib/index.js",
   "bin": {
-    "create-webapp-cli": "./lib/index.js"
+    "create-web-project-cli": "./lib/index.js"
   },
   "scripts": {
     "dev": "tsc --watch",
-    "build": "rimraf ./lib && tsc"
+    "build": "rimraf ./lib && tsc",
+    "release": "pnpm build & release-it"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "web project"
+  ],
+  "license": "MIT",
   "devDependencies": {
     "@types/fs-extra": "^11.0.1",
     "rimraf": "^5.0.0",
@@ -23,6 +25,7 @@
     "enquirer": "^2.3.6",
     "fast-glob": "^3.2.12",
     "fs-extra": "^11.1.1",
+    "ora": "5.4.1",
     "picocolors": "^1.0.0"
   }
 }
