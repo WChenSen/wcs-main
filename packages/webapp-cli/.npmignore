@@ -1,4 +1,6 @@
 packages/*/node_modules/
 src/*
-tsconfig.json
-
+# vue3
+packages/*/auto-imports.d.ts
+packages/*/components.d.ts
+/tsconfig.json

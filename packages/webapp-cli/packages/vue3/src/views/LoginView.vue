@@ -1,3 +1,5 @@
 <template>
-  <main class="m-20">LoginView</main>
+  <div>LoginView</div>
 </template>
+
+<script setup lang="ts" name="LoginView"></script>

@@ -10,7 +10,6 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
   ],
-  overrides: [],
   parser: 'vue-eslint-parser',
   parserOptions: {
     ecmaVersion: 'latest',
@@ -18,5 +17,4 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['vue', '@typescript-eslint'],
-  rules: {},
 };

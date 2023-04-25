@@ -1,6 +1,6 @@
 {
   "name": "create-web-project-cli",
-  "version": "1.1.4",
+  "version": "1.1.6",
   "description": "Create web CLI App",
   "main": "lib/index.js",
   "bin": {
@@ -14,6 +14,10 @@
   "keywords": [
     "web project"
   ],
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/fs-extra": "^11.0.1",

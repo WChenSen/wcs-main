@@ -5,7 +5,9 @@ import App from './App.vue'
 import router from './router'
 
 // css
-import './index.css'
+// import './index.css'
+import 'virtual:uno.css'
+import '@unocss/reset/tailwind-compat.css'
 import 'vant/es/toast/style'
 import 'vant/es/dialog/style'
 import 'vant/es/notify/style'

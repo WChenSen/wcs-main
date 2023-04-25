@@ -40,14 +40,14 @@ request.interceptors.response.use(
     closeToast()
     if (code === 200 || code === 1) {
       return data
-    } else if (code === 401) {
+    }
+    if (code === 401) {
       generatorNotify('登录失效，请重新登录')
       code === 401 && removeToken()
       return Promise.reject(new Error(notifyMessage))
-    } else {
-      generatorNotify(notifyMessage)
-      return Promise.reject(new Error(notifyMessage))
     }
+    generatorNotify(notifyMessage)
+    return Promise.reject(new Error(notifyMessage))
   },
   (error: AxiosError) => {
     closeToast()
