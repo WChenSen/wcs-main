@@ -3,4 +3,6 @@ src/*
 # vue3
 packages/*/auto-imports.d.ts
 packages/*/components.d.ts
+packages/*/dist/
+packages/*/.eslintrc-auto-import.json
 /tsconfig.json
